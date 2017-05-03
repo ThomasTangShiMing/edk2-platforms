@@ -30,7 +30,7 @@ DEFINE DO_KCS       = 1
   SUPPORTED_ARCHITECTURES        = AARCH64
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT
-  FLASH_DEFINITION               = OpenPlatformPkg/Platforms/AMD/Styx/Overdrive1000Board/Overdrive1000Board.fdf
+  FLASH_DEFINITION               = Platform/SoftIron/Overdrive1000Board/Overdrive1000Board.fdf
 
 ################################################################################
 #
@@ -101,7 +101,7 @@ DEFINE DO_KCS       = 1
 
   ArmLib|ArmPkg/Library/ArmLib/ArmBaseLib.inf
   ArmMmuLib|ArmPkg/Library/ArmMmuLib/ArmMmuBaseLib.inf
-  ArmPlatformLib|OpenPlatformPkg/Platforms/AMD/Styx/Library/AmdStyxLib/AmdStyxLib.inf
+  ArmPlatformLib|Silicon/AMD/Styx/Library/AmdStyxLib/AmdStyxLib.inf
   TimerLib|ArmPkg/Library/ArmArchTimerLib/ArmArchTimerLib.inf
   UefiScsiLib|MdePkg/Library/UefiScsiLib/UefiScsiLib.inf
 
@@ -114,15 +114,15 @@ DEFINE DO_KCS       = 1
   #
   PciSegmentLib|MdePkg/Library/BasePciSegmentLibPci/BasePciSegmentLibPci.inf
   PciLib|MdePkg/Library/BasePciLibPciExpress/BasePciLibPciExpress.inf
-  PciHostBridgeLib|OpenPlatformPkg/Platforms/AMD/Styx/Library/AmdStyxPciHostBridgeLib/AmdStyxPciHostBridgeLib.inf
+  PciHostBridgeLib|Silicon/AMD/Styx/Library/AmdStyxPciHostBridgeLib/AmdStyxPciHostBridgeLib.inf
 
   #
   # Styx specific libraries
   #
-  AmdSataInit|AmdModulePkg/Library/AmdSataInitLib/AmdSataInitLib.inf
-  AmdStyxAcpiLib|OpenPlatformPkg/Platforms/AMD/Styx/AcpiTables/AcpiTables.inf
-  EfiResetSystemLib|OpenPlatformPkg/Platforms/AMD/Styx/Library/ResetSystemLib/ResetSystemLib.inf
-  RealTimeClockLib|OpenPlatformPkg/Platforms/AMD/Styx/Library/RealTimeClockLib/RealTimeClockLib.inf
+  AmdSataInit|Silicon/AMD/Styx/AmdModulePkg/Library/AmdSataInitLib/AmdSataInitLib.inf
+  AmdStyxAcpiLib|Silicon/AMD/Styx/AcpiTables/AcpiTables.inf
+  EfiResetSystemLib|Silicon/AMD/Styx/Library/ResetSystemLib/ResetSystemLib.inf
+  RealTimeClockLib|Silicon/AMD/Styx/Library/RealTimeClockLib/RealTimeClockLib.inf
 
   CapsuleLib|MdeModulePkg/Library/DxeCapsuleLibNull/DxeCapsuleLibNull.inf
   UefiBootManagerLib|MdeModulePkg/Library/UefiBootManagerLib/UefiBootManagerLib.inf
@@ -157,7 +157,7 @@ DEFINE DO_KCS       = 1
   MemoryAllocationLib|MdePkg/Library/PeiMemoryAllocationLib/PeiMemoryAllocationLib.inf
 
   PcdLib|MdePkg/Library/BasePcdLibNull/BasePcdLibNull.inf
-  ArmPlatformLib|OpenPlatformPkg/Platforms/AMD/Styx/Library/AmdStyxLib/AmdStyxLibSec.inf
+  ArmPlatformLib|Silicon/AMD/Styx/Library/AmdStyxLib/AmdStyxLibSec.inf
 
   ArmPlatformSecExtraActionLib|ArmPlatformPkg/Library/DebugSecExtraActionLib/DebugSecExtraActionLib.inf
 
@@ -169,7 +169,7 @@ DEFINE DO_KCS       = 1
   ArmGicArchLib|ArmPkg/Library/ArmGicArchSecLib/ArmGicArchSecLib.inf
 
 [LibraryClasses.common.PEIM, LibraryClasses.common.SEC]
-  MemoryInitPeiLib|OpenPlatformPkg/Platforms/AMD/Styx/Library/MemoryInitPei/MemoryInitPeiLib.inf
+  MemoryInitPeiLib|Silicon/AMD/Styx/Library/MemoryInitPei/MemoryInitPeiLib.inf
   BaseMemoryLib|MdePkg/Library/BaseMemoryLib/BaseMemoryLib.inf
 
 [LibraryClasses.common.PEI_CORE]
@@ -266,7 +266,7 @@ DEFINE DO_KCS       = 1
   GCC:*_*_AARCH64_ARCHCC_FLAGS = -DDO_KCS=$(DO_KCS) -DNUM_CORES=$(NUM_CORES) -DARM_CPU_AARCH64
   GCC:*_*_AARCH64_PP_FLAGS = -DDO_KCS=$(DO_KCS) -DNUM_CORES=$(NUM_CORES) -DARM_CPU_AARCH64
 
-  GCC:*_*_AARCH64_PLATFORM_FLAGS = -I$(BIN_DIR)/OpenPlatformPkg/Platforms/AMD/Styx/AcpiTables/AcpiAml/OUTPUT
+  GCC:*_*_AARCH64_PLATFORM_FLAGS = -I$(BIN_DIR)/edk2-platforms/Silicon/AMD/Styx/AcpiTables/AcpiAml/OUTPUT
 
 [BuildOptions.common.EDKII.DXE_RUNTIME_DRIVER]
   GCC:*_*_AARCH64_DLINK_FLAGS = -z common-page-size=0x10000
@@ -495,8 +495,8 @@ DEFINE DO_KCS       = 1
       PcdLib|MdePkg/Library/BasePcdLibNull/BasePcdLibNull.inf
   }
   ArmPlatformPkg/PlatformPei/PlatformPeim.inf
-  AmdModulePkg/Iscp/IscpPei.inf
-  OpenPlatformPkg/Platforms/AMD/Styx/Drivers/PlatInitPei/PlatInitPei.inf
+  Silicon/AMD/Styx/AmdModulePkg/Iscp/IscpPei.inf
+  Silicon/AMD/Styx/Drivers/PlatInitPei/PlatInitPei.inf
   ArmPlatformPkg/MemoryInitPei/MemoryInitPeim.inf
   ArmPkg/Drivers/CpuPei/CpuPei.inf
   MdeModulePkg/Universal/Variable/Pei/VariablePei.inf
@@ -553,12 +553,12 @@ DEFINE DO_KCS       = 1
       VarCheckLib|MdeModulePkg/Library/VarCheckLib/VarCheckLib.inf
       NULL|MdeModulePkg/Library/VarCheckUefiLib/VarCheckUefiLib.inf
   }
-  OpenPlatformPkg/Platforms/AMD/Styx/Drivers/StyxSpiFvDxe/StyxSpiFvDxe.inf
+  Silicon/AMD/Styx/Drivers/StyxSpiFvDxe/StyxSpiFvDxe.inf
 
   #
   # Iscp support
   #
-  AmdModulePkg/Iscp/IscpDxe.inf
+  Silicon/AMD/Styx/AmdModulePkg/Iscp/IscpDxe.inf
 
   #
   # FDT support
@@ -566,13 +566,13 @@ DEFINE DO_KCS       = 1
   EmbeddedPkg/Drivers/DtPlatformDxe/DtPlatformDxe.inf {
     <LibraryClasses>
       FdtLib|EmbeddedPkg/Library/FdtLib/FdtLib.inf
-      DtPlatformDtbLoaderLib|OpenPlatformPkg/Platforms/AMD/Styx/Library/StyxDtbLoaderLib/StyxDtbLoaderLib.inf
+      DtPlatformDtbLoaderLib|Silicon/AMD/Styx/Library/StyxDtbLoaderLib/StyxDtbLoaderLib.inf
   }
 
   #
   # PCI support
   #
-  AmdModulePkg/Gionb/Gionb.inf
+  Silicon/AMD/Styx/AmdModulePkg/Gionb/Gionb.inf
   ArmPkg/Drivers/ArmPciCpuIo2Dxe/ArmPciCpuIo2Dxe.inf
   MdeModulePkg/Bus/Pci/PciHostBridgeDxe/PciHostBridgeDxe.inf
   MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
@@ -580,7 +580,7 @@ DEFINE DO_KCS       = 1
   #
   # MP-Boot: ACPI[Parking Protocol] + FDT[Spin-Table]
   #
-  OpenPlatformPkg/Platforms/AMD/Styx/Drivers/MpBootDxe/MpBootDxe.inf
+  Silicon/AMD/Styx/Drivers/MpBootDxe/MpBootDxe.inf
 
   #
   # AHCI Support
@@ -591,7 +591,7 @@ DEFINE DO_KCS       = 1
   MdeModulePkg/Bus/Scsi/ScsiDiskDxe/ScsiDiskDxe.inf
   MdeModulePkg/Bus/Pci/SataControllerDxe/SataControllerDxe.inf
   MdeModulePkg/Bus/Pci/NonDiscoverablePciDeviceDxe/NonDiscoverablePciDeviceDxe.inf
-  OpenPlatformPkg/Platforms/AMD/Styx/Drivers/StyxSataPlatformDxe/StyxSataPlatformDxe.inf
+  Silicon/AMD/Styx/Drivers/StyxSataPlatformDxe/StyxSataPlatformDxe.inf
 
   #
   # USB Support
@@ -605,7 +605,9 @@ DEFINE DO_KCS       = 1
   #
   # Marvell Yukon Ethernet (Overdrive 1000 has 88e8059)
   #
+!if 0
   OptionRomPkg/MarvellYukonDxe/MarvellYukonDxe.inf
+!endif
 
   #
   # Networking stack
@@ -631,7 +633,7 @@ DEFINE DO_KCS       = 1
   #
   # Core Info
   #
-  OpenPlatformPkg/Platforms/AMD/Styx/Drivers/PlatInitDxe/PlatInitDxe.inf
+  Silicon/AMD/Styx/Drivers/PlatInitDxe/PlatInitDxe.inf
 
   #
   # ACPI Support
@@ -640,14 +642,14 @@ DEFINE DO_KCS       = 1
     <LibraryClasses>
       NULL|EmbeddedPkg/Library/PlatformHasAcpiLib/PlatformHasAcpiLib.inf
   }
-  OpenPlatformPkg/Platforms/AMD/Styx/AcpiTables/AcpiAml.inf
-  OpenPlatformPkg/Platforms/AMD/Styx/Drivers/AcpiPlatformDxe/AcpiPlatformDxe.inf
+  Silicon/AMD/Styx/AcpiTables/AcpiAml.inf
+  Silicon/AMD/Styx/Drivers/AcpiPlatformDxe/AcpiPlatformDxe.inf
 
   #
   # SMBIOS Support
   #
   MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
-  OpenPlatformPkg/Platforms/AMD/Styx/Drivers/PlatformSmbiosDxe/PlatformSmbiosDxe.inf
+  Silicon/AMD/Styx/Drivers/PlatformSmbiosDxe/PlatformSmbiosDxe.inf
 
   #
   # FAT filesystem + GPT/MBR partitioning
@@ -674,7 +676,7 @@ DEFINE DO_KCS       = 1
   #
   # Crypto Accelerator support (RNG only)
   #
-  OpenPlatformPkg/Platforms/AMD/Styx/Drivers/StyxRngDxe/StyxRngDxe.inf
+  Silicon/AMD/Styx/Drivers/StyxRngDxe/StyxRngDxe.inf
 
   #
   # UEFI application (Shell Embedded Boot Loader)
