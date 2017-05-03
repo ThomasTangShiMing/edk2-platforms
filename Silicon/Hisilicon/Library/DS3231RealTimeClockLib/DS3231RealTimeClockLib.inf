@@ -31,8 +31,7 @@
 [Packages]
   MdePkg/MdePkg.dec
   EmbeddedPkg/EmbeddedPkg.dec
-  OpenPlatformPkg/OpenPlatformPkg.dec
-  OpenPlatformPkg/Chips/Hisilicon/HisiPkg.dec
+  Silicon/Hisilicon/HisiPkg.dec
 
 [LibraryClasses]
   IoLib

@@ -30,7 +30,7 @@
   ArmPkg/ArmPkg.dec
   ArmPlatformPkg/ArmPlatformPkg.dec
 
-  OpenPlatformPkg/Chips/Hisilicon/HisiPkg.dec
+  Silicon/Hisilicon/HisiPkg.dec
 
 [LibraryClasses]
   IoLib

@@ -31,7 +31,7 @@
   ArmPlatformPkg/ArmPlatformPkg.dec
   MdePkg/MdePkg.dec
   ArmPkg/ArmPkg.dec
-  OpenPlatformPkg/Chips/Hisilicon/HisiPkg.dec
+  Silicon/Hisilicon/HisiPkg.dec
 
 [LibraryClasses]
   UefiBootServicesTableLib

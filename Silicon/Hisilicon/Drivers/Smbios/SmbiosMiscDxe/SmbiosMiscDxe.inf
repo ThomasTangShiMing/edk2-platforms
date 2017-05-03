@@ -59,7 +59,7 @@
   IntelFrameworkPkg/IntelFrameworkPkg.dec
   IntelFrameworkModulePkg/IntelFrameworkModulePkg.dec
 
-  OpenPlatformPkg/Chips/Hisilicon/HisiPkg.dec
+  Silicon/Hisilicon/HisiPkg.dec
 
 [LibraryClasses]
   PcdLib

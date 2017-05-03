@@ -56,7 +56,7 @@ NumBlocks     = 0x30
 
 0x00000000|0x00040000
 gArmTokenSpaceGuid.PcdSecureFvBaseAddress|gArmTokenSpaceGuid.PcdSecureFvSize
-FILE = OpenPlatformPkg/Platforms/Hisilicon/Binary/D02/Sec/FVMAIN_SEC.Fv
+FILE = Platform/Hisilicon/D02/Sec/FVMAIN_SEC.Fv
 
 0x00040000|0x00240000
 gArmTokenSpaceGuid.PcdFvBaseAddress|gArmTokenSpaceGuid.PcdFvSize
@@ -65,9 +65,9 @@ FV = FVMAIN_COMPACT
 ## Place for Trusted Firmware
 0x00280000|0x00020000
 gHisiTokenSpaceGuid.PcdTrustedFirmwareBL1Base
-FILE = OpenPlatformPkg/Platforms/Hisilicon/Binary/D02/bl1.bin
+FILE = Platform/Hisilicon/D02/bl1.bin
 0x002a0000|0x00020000
-FILE = OpenPlatformPkg/Platforms/Hisilicon/Binary/D02/fip.bin
+FILE = Platform/Hisilicon/D02/fip.bin
 
 0x002e0000|0x0000e000
 gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageVariableBase|gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageVariableSize
@@ -147,7 +147,7 @@ READ_LOCK_STATUS   = TRUE
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
 
-  INF OpenPlatformPkg/Chips/Hisilicon/Pv660/Drivers/IoInitDxe/IoInitDxe.inf
+  INF Silicon/Hisilicon/Pv660/Drivers/IoInitDxe/IoInitDxe.inf
 
   #
   # PI DXE Drivers producing Architectural Protocols (EFI Services)
@@ -156,17 +156,17 @@ READ_LOCK_STATUS   = TRUE
   INF MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
 
   INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
-  INF OpenPlatformPkg/Chips/Hisilicon/Drivers/NorFlashDxe/NorFlashDxe.inf
-  INF OpenPlatformPkg/Platforms/Hisilicon/Binary/D02/Drivers/SFC/SfcDxeDriver.inf
+  INF Silicon/Hisilicon/Drivers/NorFlashDxe/NorFlashDxe.inf
+  INF Platform/Hisilicon/D02/Drivers/SFC/SfcDxeDriver.inf
 
-  INF OpenPlatformPkg/Platforms/Hisilicon/D02/OemNicConfigD02/OemNicConfigD02.inf
+  INF Platform/Hisilicon/D02/OemNicConfigD02/OemNicConfigD02.inf
 
   # PCI Express
-  INF OpenPlatformPkg/Chips/Hisilicon/Pv660/Drivers/PcieInitDxe/PcieInitDxe.inf
-  INF OpenPlatformPkg/Chips/Hisilicon/Drivers/PciHostBridgeDxe/PciHostBridgeDxe.inf
+  INF Silicon/Hisilicon/Pv660/Drivers/PcieInitDxe/PcieInitDxe.inf
+  INF Silicon/Hisilicon/Drivers/PciHostBridgeDxe/PciHostBridgeDxe.inf
   INF MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
 
-  INF OpenPlatformPkg/Chips/Hisilicon/Drivers/FlashFvbDxe/FlashFvbDxe.inf
+  INF Silicon/Hisilicon/Drivers/FlashFvbDxe/FlashFvbDxe.inf
   INF MdeModulePkg/Universal/FaultTolerantWriteDxe/FaultTolerantWriteDxe.inf
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
   ## Sometimes we need to switch to emulated variable store for debug reason
@@ -201,22 +201,21 @@ READ_LOCK_STATUS   = TRUE
   #
   # FAT filesystem + GPT/MBR partitioning
   #
-  INF OpenPlatformPkg/Drivers/Block/ramdisk/ramdisk.inf
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF FatBinPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
   INF IntelFrameworkModulePkg/Universal/StatusCode/RuntimeDxe/StatusCodeRuntimeDxe.inf
 
-  INF OpenPlatformPkg/Chips/Hisilicon/Drivers/SasV1Dxe/SasV1Dxe.inf
+  INF Silicon/Hisilicon/Drivers/SasV1Dxe/SasV1Dxe.inf
   INF MdeModulePkg/Bus/Scsi/ScsiBusDxe/ScsiBusDxe.inf
   INF MdeModulePkg/Bus/Scsi/ScsiDiskDxe/ScsiDiskDxe.inf
-  INF OpenPlatformPkg/Chips/Hisilicon/Pv660/Drivers/SasInitDxe/SasV1Init.inf
+  INF Silicon/Hisilicon/Pv660/Drivers/SasInitDxe/SasV1Init.inf
 
   INF MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
-  INF OpenPlatformPkg/Chips/Hisilicon/Drivers/Smbios/SmbiosMiscDxe/SmbiosMiscDxe.inf
-  INF OpenPlatformPkg/Chips/Hisilicon/Drivers/Smbios/MemorySubClassDxe/MemorySubClassDxe.inf
-  INF OpenPlatformPkg/Chips/Hisilicon/Drivers/Smbios/ProcessorSubClassDxe/ProcessorSubClassDxe.inf
+  INF Silicon/Hisilicon/Drivers/Smbios/SmbiosMiscDxe/SmbiosMiscDxe.inf
+  INF Silicon/Hisilicon/Drivers/Smbios/MemorySubClassDxe/MemorySubClassDxe.inf
+  INF Silicon/Hisilicon/Drivers/Smbios/ProcessorSubClassDxe/ProcessorSubClassDxe.inf
 
   #
   #ACPI
@@ -224,14 +223,13 @@ READ_LOCK_STATUS   = TRUE
   INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
   INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
 
-  INF RuleOverride=ACPITABLE OpenPlatformPkg/Chips/Hisilicon/Pv660/Pv660AcpiTables/AcpiTables.inf
-  INF OpenPlatformPkg/Chips/Hisilicon/Drivers/AcpiPlatformDxe/AcpiPlatformDxe.inf
+  INF RuleOverride=ACPITABLE Silicon/Hisilicon/Pv660/Pv660AcpiTables/AcpiTables.inf
+  INF Silicon/Hisilicon/Drivers/AcpiPlatformDxe/AcpiPlatformDxe.inf
 
   #
   #Network
   #
-  INF OpenPlatformPkg/Platforms/Hisilicon/Binary/D02/Drivers/SnpPV600Dxe_PLAT/SnpPV600DxeMac4PhyInitOnly.inf
-  INF OpenPlatformPkg/Platforms/Hisilicon/Binary/D02/Drivers/SnpPV600Dxe_PLAT/SnpPV600DxeMac5.inf
+  INF Platform/Hisilicon/D02/Drivers/Net/SnpPV600Dxe/SnpPV600Dxe.inf
 
   INF MdeModulePkg/Universal/Network/ArpDxe/ArpDxe.inf
   INF MdeModulePkg/Universal/Network/Dhcp4Dxe/Dhcp4Dxe.inf
@@ -244,29 +242,24 @@ READ_LOCK_STATUS   = TRUE
   INF MdeModulePkg/Universal/Network/UefiPxeBcDxe/UefiPxeBcDxe.inf
 
 !ifdef $(FDT_ENABLE)
-  INF OpenPlatformPkg/Chips/Hisilicon/Drivers/UpdateFdtDxe/UpdateFdtDxe.inf
+  INF Silicon/Hisilicon/Drivers/UpdateFdtDxe/UpdateFdtDxe.inf
 !endif #$(FDT_ENABLE)
 
-  INF OpenPlatformPkg/Chips/Hisilicon/Pv660/Drivers/UnInstallAcpiTableDxe/UnInstallAcpiTable.inf
+  INF Silicon/Hisilicon/Pv660/Drivers/UnInstallAcpiTableDxe/UnInstallAcpiTable.inf
 
   #
   #Sata
   #
-  INF OpenPlatformPkg/Platforms/Hisilicon/Binary/D02/Drivers/AtaAtapiPassThru/AtaAtapiPassThru.inf
+  INF Platform/Hisilicon/D02/Drivers/AtaAtapiPassThru/AtaAtapiPassThru.inf
   INF MdeModulePkg/Bus/Ata/AtaBusDxe/AtaBusDxe.inf
 
   #
   # USB Support
   #
-  INF OpenPlatformPkg/Chips/Hisilicon/Drivers/VirtualEhciPciIo/VirtualEhciPciIo.inf
+  INF Silicon/Hisilicon/Drivers/VirtualEhciPciIo/VirtualEhciPciIo.inf
   INF MdeModulePkg/Bus/Pci/EhciDxe/EhciDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
-
-  #
-  # UEFI application (Shell Embedded Boot Loader)
-  #
-  INF OpenPlatformPkg/Platforms/Hisilicon/Binary/D02/Ebl/Ebl.inf
 
   #
   # Build Shell from latest source code instead of prebuilt binary
@@ -304,13 +297,13 @@ READ_LOCK_STATUS   = TRUE
   INF ArmPlatformPkg/PrePeiCore/PrePeiCoreMPCore.inf
   INF MdeModulePkg/Core/Pei/PeiMain.inf
   INF ArmPlatformPkg/PlatformPei/PlatformPeim.inf
-  INF OpenPlatformPkg/Chips/Hisilicon/Drivers/VersionInfoPeim/VersionInfoPeim.inf
-  INF OpenPlatformPkg/Platforms/Hisilicon/Binary/D02/MemoryInitPei/MemoryInitPeim.inf
+  INF Silicon/Hisilicon/Drivers/VersionInfoPeim/VersionInfoPeim.inf
+  INF Platform/Hisilicon/D02/MemoryInitPei/MemoryInitPeim.inf
   INF ArmPkg/Drivers/CpuPei/CpuPei.inf
   INF MdeModulePkg/Universal/PCD/Pei/Pcd.inf
   INF IntelFrameworkModulePkg/Universal/StatusCode/Pei/StatusCodePei.inf
 
-  INF OpenPlatformPkg/Platforms/Hisilicon/D02/EarlyConfigPeim/EarlyConfigPeim.inf
+  INF Platform/Hisilicon/D02/EarlyConfigPeim/EarlyConfigPeim.inf
   INF MdeModulePkg/Core/DxeIplPeim/DxeIpl.inf
 
   FILE FV_IMAGE = 9E21FD93-9C72-4c15-8C4B-E77F1DB2D792 {
@@ -320,5 +313,5 @@ READ_LOCK_STATUS   = TRUE
   }
 
 
-!include OpenPlatformPkg/Chips/Hisilicon/Hisilicon.fdf.inc
+!include Silicon/Hisilicon/Hisilicon.fdf.inc
 

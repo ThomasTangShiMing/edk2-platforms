@@ -31,8 +31,8 @@
   MdeModulePkg/MdeModulePkg.dec
   ArmPkg/ArmPkg.dec
 
-  OpenPlatformPkg/Chips/Hisilicon/HisiPkg.dec
-  OpenPlatformPkg/Platforms/Hisilicon/D02/Pv660D02.dec
+  Platform/Hisilicon/D02/Pv660D02.dec
+  Silicon/Hisilicon/HisiPkg.dec
 
 [LibraryClasses]
   SerialPortLib

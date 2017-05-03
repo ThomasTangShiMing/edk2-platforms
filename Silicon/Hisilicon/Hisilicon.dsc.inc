@@ -77,7 +77,7 @@
   # ARM PL011 UART Driver
   PL011UartLib|ArmPlatformPkg/Drivers/PL011Uart/PL011Uart.inf
 
-  SerialPortLib|OpenPlatformPkg/Chips/Hisilicon/Library/Dw8250SerialPortLib/Dw8250SerialPortLib.inf
+  SerialPortLib|Silicon/Hisilicon/Library/Dw8250SerialPortLib/Dw8250SerialPortLib.inf
   TimerLib|ArmPkg/Library/ArmArchTimerLib/ArmArchTimerLib.inf
 
   # EBL Related Libraries
@@ -217,7 +217,7 @@
   MemoryAllocationLib|MdePkg/Library/UefiMemoryAllocationLib/UefiMemoryAllocationLib.inf
   ReportStatusCodeLib|MdeModulePkg/Library/RuntimeDxeReportStatusCodeLib/RuntimeDxeReportStatusCodeLib.inf
   CapsuleLib|MdeModulePkg/Library/DxeCapsuleLibNull/DxeCapsuleLibNull.inf
-  SerialPortLib|OpenPlatformPkg/Chips/Hisilicon/Library/Dw8250SerialPortRuntimeLib/Dw8250SerialPortRuntimeLib.inf
+  SerialPortLib|Silicon/Hisilicon/Library/Dw8250SerialPortRuntimeLib/Dw8250SerialPortRuntimeLib.inf
   DebugLib|IntelFrameworkModulePkg/Library/PeiDxeDebugLibReportStatusCode/PeiDxeDebugLibReportStatusCode.inf
 
 [LibraryClasses.AARCH64]

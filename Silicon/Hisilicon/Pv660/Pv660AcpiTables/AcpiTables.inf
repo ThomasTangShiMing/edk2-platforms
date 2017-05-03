@@ -45,7 +45,7 @@
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
 
-  OpenPlatformPkg/Chips/Hisilicon/HisiPkg.dec
+  Silicon/Hisilicon/HisiPkg.dec
 
 [FixedPcd]
   gArmPlatformTokenSpaceGuid.PcdCoreCount
