@@ -30,7 +30,7 @@
   MdeModulePkg/MdeModulePkg.dec
 
   ArmPkg/ArmPkg.dec
-  OpenPlatformPkg/Chips/Hisilicon/HisiPkg.dec
+  Silicon/Hisilicon/HisiPkg.dec
 
 [LibraryClasses]
   PeimEntryPoint

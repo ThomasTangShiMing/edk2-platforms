@@ -27,24 +27,24 @@
   SUPPORTED_ARCHITECTURES        = AARCH64
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT
-  FLASH_DEFINITION               = OpenPlatformPkg/Platforms/Hisilicon/$(PLATFORM_NAME)/$(PLATFORM_NAME).fdf
+  FLASH_DEFINITION               = Platform/Hisilicon/$(PLATFORM_NAME)/$(PLATFORM_NAME).fdf
   DEFINE INCLUDE_TFTP_COMMAND=1
 
-!include OpenPlatformPkg/Chips/Hisilicon/Hisilicon.dsc.inc
+!include Silicon/Hisilicon/Hisilicon.dsc.inc
 
 [LibraryClasses.common]
   ArmLib|ArmPkg/Library/ArmLib/ArmBaseLib.inf
-  ArmPlatformLib|OpenPlatformPkg/Chips/Hisilicon/Library/ArmPlatformLibHisilicon/ArmPlatformLib.inf
+  ArmPlatformLib|Silicon/Hisilicon/Library/ArmPlatformLibHisilicon/ArmPlatformLib.inf
 
   ArmPlatformSysConfigLib|ArmPlatformPkg/ArmVExpressPkg/Library/ArmVExpressSysConfigLib/ArmVExpressSysConfigLib.inf
   NorFlashPlatformLib|ArmPlatformPkg/ArmVExpressPkg/Library/NorFlashArmVExpressLib/NorFlashArmVExpressLib.inf
   LcdPlatformLib|ArmPlatformPkg/ArmVExpressPkg/Library/PL111LcdArmVExpressLib/PL111LcdArmVExpressLib.inf
 
 
-  I2CLib|OpenPlatformPkg/Chips/Hisilicon/Library/I2CLib/I2CLib.inf
+  I2CLib|Silicon/Hisilicon/Library/I2CLib/I2CLib.inf
   TimerLib|ArmPkg/Library/ArmArchTimerLib/ArmArchTimerLib.inf
 
-  IpmiCmdLib|OpenPlatformPkg/Chips/Hisilicon/Binary/Hi1610/Library/IpmiCmdLib/IpmiCmdLib.inf
+  IpmiCmdLib|Silicon/Hisilicon/Hi1610/Library/IpmiCmdLib/IpmiCmdLib.inf
 
   NetLib|MdeModulePkg/Library/DxeNetLib/DxeNetLib.inf
   DpcLib|MdeModulePkg/Library/DxeDpcLib/DxeDpcLib.inf
@@ -57,30 +57,30 @@
 
 !ifdef $(FDT_ENABLE)
   #FDTUpdateLib
-  FdtUpdateLib|OpenPlatformPkg/Platforms/Hisilicon/D03/Library/FdtUpdateLib/FdtUpdateLib.inf
+  FdtUpdateLib|Platform/Hisilicon/D03/Library/FdtUpdateLib/FdtUpdateLib.inf
 !endif #$(FDT_ENABLE)
 
-  CpldIoLib|OpenPlatformPkg/Chips/Hisilicon/Library/CpldIoLib/CpldIoLib.inf
+  CpldIoLib|Silicon/Hisilicon/Library/CpldIoLib/CpldIoLib.inf
 
-  SerdesLib|OpenPlatformPkg/Chips/Hisilicon/Binary/Hi1610/Library/Hi1610Serdes/Hi1610SerdesLib.inf
+  SerdesLib|Silicon/Hisilicon/Hi1610/Library/Hi1610Serdes/Hi1610SerdesLib.inf
 
-  EfiTimeBaseLib|OpenPlatformPkg/Library/EfiTimeBaseLib/EfiTimeBaseLib.inf
-  RealTimeClockLib|OpenPlatformPkg/Platforms/Hisilicon/D03/Library/DS3231RealTimeClockLib/DS3231RealTimeClockLib.inf
+  EfiTimeBaseLib|EmbeddedPkg/Library/EfiTimeBaseLib/EfiTimeBaseLib.inf
+  RealTimeClockLib|Platform/Hisilicon/D03/Library/DS3231RealTimeClockLib/DS3231RealTimeClockLib.inf
 
-  OemMiscLib|OpenPlatformPkg/Platforms/Hisilicon/D03/Library/OemMiscLib2P/OemMiscLib2PHi1610.inf
-  OemAddressMapLib|OpenPlatformPkg/Platforms/Hisilicon/Binary/D03/Library/OemAddressMap2P/OemAddressMap2PHi1610.inf
-  PlatformSysCtrlLib|OpenPlatformPkg/Chips/Hisilicon/Binary/Hi1610/Library/PlatformSysCtrlLibHi1610/PlatformSysCtrlLibHi1610.inf
+  OemMiscLib|Platform/Hisilicon/D03/Library/OemMiscLib2P/OemMiscLib2PHi1610.inf
+  OemAddressMapLib|Platform/Hisilicon/D03/Library/OemAddressMap2P/OemAddressMap2PHi1610.inf
+  PlatformSysCtrlLib|Silicon/Hisilicon/Hi1610/Library/PlatformSysCtrlLibHi1610/PlatformSysCtrlLibHi1610.inf
 
   CapsuleLib|MdeModulePkg/Library/DxeCapsuleLibNull/DxeCapsuleLibNull.inf
   GenericBdsLib|IntelFrameworkModulePkg/Library/GenericBdsLib/GenericBdsLib.inf
-  PlatformBdsLib|OpenPlatformPkg/Chips/Hisilicon/Library/PlatformIntelBdsLib/PlatformIntelBdsLib.inf
+  PlatformBdsLib|Silicon/Hisilicon/Library/PlatformIntelBdsLib/PlatformIntelBdsLib.inf
   CustomizedDisplayLib|MdeModulePkg/Library/CustomizedDisplayLib/CustomizedDisplayLib.inf
 
   # USB Requirements
   UefiUsbLib|MdePkg/Library/UefiUsbLib/UefiUsbLib.inf
 
-  LpcLib|OpenPlatformPkg/Chips/Hisilicon/Binary/Hi1610/Library/LpcLib/LpcLib.inf
-  SerialPortLib|OpenPlatformPkg/Chips/Hisilicon/Binary/Hi1610/Library/Uart/LpcSerialPortLib/LpcSerialPortLib.inf
+  LpcLib|Silicon/Hisilicon/Hi1610/Library/LpcLib/LpcLib.inf
+  SerialPortLib|Silicon/Hisilicon/Hi1610/Library/Uart/LpcSerialPortLib/LpcSerialPortLib.inf
 
 ## GIC on D02/D03 is not fully ARM GIC compatible: IRQ cannot be cancelled when
 ## input signal is de-asserted, except for virtual timer interrupt IRQ #27.
@@ -90,15 +90,15 @@
   ArmGenericTimerCounterLib|ArmPkg/Library/ArmGenericTimerVirtCounterLib/ArmGenericTimerVirtCounterLib.inf
 
 [LibraryClasses.common.SEC]
-  ArmPlatformLib|OpenPlatformPkg/Chips/Hisilicon/Library/ArmPlatformLibHisilicon/ArmPlatformLibSec.inf
+  ArmPlatformLib|Silicon/Hisilicon/Library/ArmPlatformLibHisilicon/ArmPlatformLibSec.inf
 
 
 [LibraryClasses.common.DXE_RUNTIME_DRIVER]
-  I2CLib|OpenPlatformPkg/Chips/Hisilicon/Library/I2CLib/I2CLibRuntime.inf
-  SerialPortLib|OpenPlatformPkg/Chips/Hisilicon/Binary/Hi1610/Library/Uart/LpcSerialPortLib/LpcSerialPortLib.inf
+  I2CLib|Silicon/Hisilicon/Library/I2CLib/I2CLibRuntime.inf
+  SerialPortLib|Silicon/Hisilicon/Hi1610/Library/Uart/LpcSerialPortLib/LpcSerialPortLib.inf
 
 [BuildOptions]
-  GCC:*_*_AARCH64_PLATFORM_FLAGS == -I$(WORKSPACE)/OpenPlatformPkg/Chips/Hisilicon/Hi1610/Include
+  GCC:*_*_AARCH64_PLATFORM_FLAGS == -I$(WORKSPACE)/Silicon/Hisilicon/Hi1610/Include
 
 ################################################################################
 #
@@ -223,9 +223,6 @@
   gHisiTokenSpaceGuid.PcdSFCMEM0BaseAddress|0xA4000000
 
 
-  gOpenPlatformTokenSpaceGuid.PcdRamDiskMaxSize|128
-
-
   gHisiTokenSpaceGuid.PcdPeriSubctrlAddress|0x40000000
 
 
@@ -320,18 +317,18 @@
     <LibraryClasses>
       PcdLib|MdePkg/Library/BasePcdLibNull/BasePcdLibNull.inf
   }
-  OpenPlatformPkg/Platforms/Hisilicon/Binary/D03/Drivers/Ipmi/IpmiInterfacePei/IpmiInterfacePei.inf
+  Platform/Hisilicon/D03/Drivers/Ipmi/IpmiInterfacePei/IpmiInterfacePei.inf
 
   ArmPlatformPkg/PlatformPei/PlatformPeim.inf
 
-  OpenPlatformPkg/Platforms/Hisilicon/Binary/D03/MemoryInitPei/MemoryInitPeim.inf
+  Platform/Hisilicon/D03/MemoryInitPei/MemoryInitPeim.inf
   ArmPkg/Drivers/CpuPei/CpuPei.inf
   IntelFrameworkModulePkg/Universal/StatusCode/Pei/StatusCodePei.inf
   MdeModulePkg/Universal/FaultTolerantWritePei/FaultTolerantWritePei.inf
   MdeModulePkg/Universal/Variable/Pei/VariablePei.inf
 
-  OpenPlatformPkg/Platforms/Hisilicon/D03/EarlyConfigPeim/EarlyConfigPeimD03.inf
-  OpenPlatformPkg/Chips/Hisilicon/Drivers/VersionInfoPeim/VersionInfoPeim.inf
+  Platform/Hisilicon/D03/EarlyConfigPeim/EarlyConfigPeimD03.inf
+  Silicon/Hisilicon/Drivers/VersionInfoPeim/VersionInfoPeim.inf
 
   MdeModulePkg/Core/DxeIplPeim/DxeIpl.inf {
     <LibraryClasses>
@@ -350,7 +347,7 @@
       PcdLib|MdePkg/Library/BasePcdLibNull/BasePcdLibNull.inf
   }
 
-  OpenPlatformPkg/Chips/Hisilicon/Hi1610/Drivers/IoInitDxe/IoInitDxe.inf
+  Silicon/Hisilicon/Hi1610/Drivers/IoInitDxe/IoInitDxe.inf
 
   #
   # Architectural Protocols
@@ -358,13 +355,13 @@
   ArmPkg/Drivers/CpuDxe/CpuDxe.inf
   MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
 
-  OpenPlatformPkg/Platforms/Hisilicon/D03/Drivers/OemNicConfig2PHi1610/OemNicConfig2P.inf
+  Platform/Hisilicon/D03/Drivers/OemNicConfig2PHi1610/OemNicConfig2P.inf
 
-  OpenPlatformPkg/Platforms/Hisilicon/Binary/D03/Drivers/SFC/SfcDxeDriver.inf
+  Platform/Hisilicon/D03/Drivers/SFC/SfcDxeDriver.inf
 
   MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
   MdeModulePkg/Universal/Variable/EmuRuntimeDxe/EmuVariableRuntimeDxe.inf
-  OpenPlatformPkg/Chips/Hisilicon/Drivers/FlashFvbDxe/FlashFvbDxe.inf
+  Silicon/Hisilicon/Drivers/FlashFvbDxe/FlashFvbDxe.inf
   MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf {
     <LibraryClasses>
       NULL|MdeModulePkg/Library/VarCheckUefiLib/VarCheckUefiLib.inf
@@ -377,7 +374,7 @@
   EmbeddedPkg/ResetRuntimeDxe/ResetRuntimeDxe.inf
   EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf {
     <LibraryClasses>
-      CpldIoLib|OpenPlatformPkg/Chips/Hisilicon/Library/CpldIoLib/CpldIoLibRuntime.inf
+      CpldIoLib|Silicon/Hisilicon/Library/CpldIoLib/CpldIoLibRuntime.inf
   }
   EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
 
@@ -404,29 +401,26 @@
   MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
   MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
 
-  OpenPlatformPkg/Chips/Hisilicon/Hi1610/Hi1610AcpiTables/AcpiTablesHi1610.inf
-  OpenPlatformPkg/Chips/Hisilicon/Drivers/AcpiPlatformDxe/AcpiPlatformDxe.inf
+  Silicon/Hisilicon/Hi1610/Hi1610AcpiTables/AcpiTablesHi1610.inf
+  Silicon/Hisilicon/Drivers/AcpiPlatformDxe/AcpiPlatformDxe.inf
 
   #
   # Usb Support
   #
-  OpenPlatformPkg/Chips/Hisilicon/Drivers/VirtualEhciPciIo/VirtualEhciPciIo.inf
+  Silicon/Hisilicon/Drivers/VirtualEhciPciIo/VirtualEhciPciIo.inf
   MdeModulePkg/Bus/Pci/EhciDxe/EhciDxe.inf
-  OpenPlatformPkg/Platforms/Hisilicon/Binary/D03/Drivers/OhciDxe/OhciDxe.inf
+  Platform/Hisilicon/D03/Drivers/OhciDxe/OhciDxe.inf
   MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
   MdeModulePkg/Bus/Usb/UsbMouseDxe/UsbMouseDxe.inf
   MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
-  OpenPlatformPkg/Platforms/Hisilicon/Binary/D03/Drivers/Ipmi/ipmiInterfaceDxe/IpmiInterfaceDxe.inf
+  Platform/Hisilicon/D03/Drivers/Ipmi/ipmiInterfaceDxe/IpmiInterfaceDxe.inf
 
   #
   #network
   #
-  OpenPlatformPkg/Platforms/Hisilicon/Binary/D03/Drivers/Net/SnpPV660DxeMac0/SnpPV600DxeMac0.inf
-  OpenPlatformPkg/Platforms/Hisilicon/Binary/D03/Drivers/Net/SnpPV660DxeMac1/SnpPV600DxeMac1.inf
-  OpenPlatformPkg/Platforms/Hisilicon/Binary/D03/Drivers/Net/SnpPV660DxeMac4/SnpPV600DxeMac4.inf
-  OpenPlatformPkg/Platforms/Hisilicon/Binary/D03/Drivers/Net/SnpPV660DxeMac5/SnpPV600DxeMac5.inf
+  Platform/Hisilicon/D03/Drivers/Net/SnpPV660Dxe/SnpPV600Dxe.inf
 
   MdeModulePkg/Universal/Network/ArpDxe/ArpDxe.inf
   MdeModulePkg/Universal/Network/Dhcp4Dxe/Dhcp4Dxe.inf
@@ -438,61 +432,59 @@
   MdeModulePkg/Universal/Network/Udp4Dxe/Udp4Dxe.inf
   MdeModulePkg/Universal/Network/UefiPxeBcDxe/UefiPxeBcDxe.inf
 
-  OpenPlatformPkg/Platforms/Hisilicon/Binary/D03/Drivers/Sas/SasDxeDriver.inf
+  Platform/Hisilicon/D03/Drivers/Sas/SasDxeDriver.inf
 
   #
   # FAT filesystem + GPT/MBR partitioning
   #
 
-  OpenPlatformPkg/Drivers/Block/ramdisk/ramdisk.inf
   MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
-  OpenPlatformPkg/Platforms/Hisilicon/Binary/D03/Ebl/Ebl.inf
   MdeModulePkg/Application/HelloWorld/HelloWorld.inf
   #
   # Bds
   #
   MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
 
-  OpenPlatformPkg/Platforms/Hisilicon/Binary/D03/Drivers/GetInfoFromBmc/GetInfoFromBmc.inf
-  OpenPlatformPkg/Platforms/Hisilicon/Binary/D03/Drivers/TransferSmbiosInfo/TransSmbiosInfo.inf
-  OpenPlatformPkg/Platforms/Hisilicon/Binary/D03/Drivers/IpmiMiscOpDxe/IpmiMiscOpDxe.inf
+  Platform/Hisilicon/D03/Drivers/GetInfoFromBmc/GetInfoFromBmc.inf
+  Platform/Hisilicon/D03/Drivers/TransferSmbiosInfo/TransSmbiosInfo.inf
+  Platform/Hisilicon/D03/Drivers/IpmiMiscOpDxe/IpmiMiscOpDxe.inf
 
-  OpenPlatformPkg/Platforms/Hisilicon/Binary/D03/Drivers/IpmiWatchdogDxe/IpmiWatchdogDxe.inf
+  Platform/Hisilicon/D03/Drivers/IpmiWatchdogDxe/IpmiWatchdogDxe.inf
 
   MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
-  OpenPlatformPkg/Chips/Hisilicon/Drivers/Smbios/SmbiosMiscDxe/SmbiosMiscDxe.inf
+  Silicon/Hisilicon/Drivers/Smbios/SmbiosMiscDxe/SmbiosMiscDxe.inf
 
 !ifdef $(FDT_ENABLE)
-  OpenPlatformPkg/Chips/Hisilicon/Drivers/UpdateFdtDxe/UpdateFdtDxe.inf {
+  Silicon/Hisilicon/Drivers/UpdateFdtDxe/UpdateFdtDxe.inf {
     <LibraryClasses>
       BaseMemoryLib|MdePkg/Library/BaseMemoryLib/BaseMemoryLib.inf
   }
 !endif #$(FDT_ENABLE)
 
   #PCIe Support
-  OpenPlatformPkg/Chips/Hisilicon/Hi1610/Drivers/PcieInit1610/PcieInitDxe.inf {
+  Silicon/Hisilicon/Hi1610/Drivers/PcieInit1610/PcieInitDxe.inf {
     <LibraryClasses>
-      NULL|OpenPlatformPkg/Platforms/Hisilicon/D03/Library/PlatformPciLib/PlatformPciLib.inf
+      NULL|Platform/Hisilicon/D03/Library/PlatformPciLib/PlatformPciLib.inf
   }
-  OpenPlatformPkg/Platforms/Hisilicon/D03/Drivers/PciPlatform/PciPlatform.inf
-  OpenPlatformPkg/Chips/Hisilicon/Drivers/PciHostBridgeDxe/PciHostBridgeDxe.inf {
+  Platform/Hisilicon/D03/Drivers/PciPlatform/PciPlatform.inf
+  Silicon/Hisilicon/Drivers/PciHostBridgeDxe/PciHostBridgeDxe.inf {
     <LibraryClasses>
-      NULL|OpenPlatformPkg/Platforms/Hisilicon/D03/Library/PlatformPciLib/PlatformPciLib.inf
+      NULL|Platform/Hisilicon/D03/Library/PlatformPciLib/PlatformPciLib.inf
   }
 
   MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
 
-  OpenPlatformPkg/Platforms/Hisilicon/Binary/D03/Drivers/ReportPciePlugDidVidToBmc/ReportPciePlugDidVidToBmc.inf
-  OpenPlatformPkg/Chips/Hisilicon/Drivers/Smbios/AddSmbiosType9/AddSmbiosType9.inf
-  OpenPlatformPkg/Platforms/Hisilicon/Binary/D03/Drivers/Sm750Dxe/UefiSmi.inf
+  Platform/Hisilicon/D03/Drivers/ReportPciePlugDidVidToBmc/ReportPciePlugDidVidToBmc.inf
+  Silicon/Hisilicon/Drivers/Smbios/AddSmbiosType9/AddSmbiosType9.inf
+  Platform/Hisilicon/D03/Drivers/Sm750Dxe/UefiSmi.inf
 
-  OpenPlatformPkg/Chips/Hisilicon/Drivers/Smbios/MemorySubClassDxe/MemorySubClassDxe.inf
+  Silicon/Hisilicon/Drivers/Smbios/MemorySubClassDxe/MemorySubClassDxe.inf
 
 
-  OpenPlatformPkg/Chips/Hisilicon/Drivers/Smbios/ProcessorSubClassDxe/ProcessorSubClassDxe.inf
+  Silicon/Hisilicon/Drivers/Smbios/ProcessorSubClassDxe/ProcessorSubClassDxe.inf
 
   #
   # Memory test
