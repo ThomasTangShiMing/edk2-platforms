@@ -29,7 +29,7 @@
   SUPPORTED_ARCHITECTURES        = AARCH64
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT
-  FLASH_DEFINITION               = OpenPlatformPkg/Platforms/ARM/VExpress/ArmVExpress-FVP-AArch64.fdf
+  FLASH_DEFINITION               = Platform/ARM/VExpress/ArmVExpress-FVP-AArch64.fdf
 
 !ifndef ARM_FVP_RUN_NORFLASH
   DEFINE EDK2_SKIP_PEICORE=1
@@ -37,7 +37,7 @@
 
   DT_SUPPORT                     = FALSE
 
-!include OpenPlatformPkg/Platforms/ARM/VExpress/ArmVExpress.dsc.inc
+!include Platform/ARM/VExpress/ArmVExpress.dsc.inc
 
 [LibraryClasses.common]
   ArmLib|ArmPkg/Library/ArmLib/ArmBaseLib.inf
@@ -59,7 +59,7 @@
   FileExplorerLib|MdeModulePkg/Library/FileExplorerLib/FileExplorerLib.inf
 !endif
 
-  DtPlatformDtbLoaderLib|OpenPlatformPkg/Platforms/ARM/VExpress/Library/ArmVExpressDtPlatformDtbLoaderLib/ArmVExpressDtPlatformDtbLoaderLib.inf
+  DtPlatformDtbLoaderLib|Platform/ARM/VExpress/Library/ArmVExpressDtPlatformDtbLoaderLib/ArmVExpressDtPlatformDtbLoaderLib.inf
 
 [LibraryClasses.common.SEC]
   ArmPlatformSecLib|ArmPlatformPkg/ArmVExpressPkg/Library/ArmVExpressSecLibRTSM/ArmVExpressSecLib.inf
@@ -263,7 +263,7 @@
   }
 
   MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
-  OpenPlatformPkg/Platforms/ARM/VExpress/AcpiTables/AcpiTables.inf
+  Platform/ARM/VExpress/AcpiTables/AcpiTables.inf
 
   ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
   ArmPlatformPkg/Drivers/NorFlashDxe/NorFlashDxe.inf

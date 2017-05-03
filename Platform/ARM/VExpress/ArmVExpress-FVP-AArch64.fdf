@@ -99,7 +99,7 @@ FvNameGuid         = 87940482-fc81-41c3-87e6-399cf85ac8a0
   #
   INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
   INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
-  INF RuleOverride=ACPITABLE OpenPlatformPkg/Platforms/ARM/VExpress/AcpiTables/AcpiTables.inf
+  INF RuleOverride=ACPITABLE Platform/ARM/VExpress/AcpiTables/AcpiTables.inf
 
   #
   # Multiple Console IO support
@@ -149,7 +149,7 @@ FvNameGuid         = 87940482-fc81-41c3-87e6-399cf85ac8a0
   INF OvmfPkg/VirtioBlkDxe/VirtioBlk.inf
 
 !ifdef EDK2_ENABLE_SMSC_91X
-!include OpenPlatformPkg/Platforms/ARM/VExpress/ArmVExpress-networking.fdf.inc
+!include Platform/ARM/VExpress/ArmVExpress-networking.fdf.inc
   INF EmbeddedPkg/Drivers/Lan91xDxe/Lan91xDxe.inf
 !endif
 
@@ -178,12 +178,12 @@ FvNameGuid         = 87940482-fc81-41c3-87e6-399cf85ac8a0
 
   # builtin device tree binaries -- order matches ARM_VEXPRESS_PLATFORM_ID
   FILE FREEFORM = 25462CDA-221F-47DF-AC1D-259CFAA4E326 {
-    SECTION RAW = OpenPlatformPkg/Platforms/ARM/VExpress/DeviceTree/fvp-base-gicv2-psci.dtb
-    SECTION RAW = OpenPlatformPkg/Platforms/ARM/VExpress/DeviceTree/fvp-base-gicv2legacy-psci.dtb
-    SECTION RAW = OpenPlatformPkg/Platforms/ARM/VExpress/DeviceTree/fvp-base-gicv3-psci.dtb
-    SECTION RAW = OpenPlatformPkg/Platforms/ARM/VExpress/DeviceTree/fvp-foundation-gicv2-psci.dtb
-    SECTION RAW = OpenPlatformPkg/Platforms/ARM/VExpress/DeviceTree/fvp-foundation-gicv2legacy-psci.dtb
-    SECTION RAW = OpenPlatformPkg/Platforms/ARM/VExpress/DeviceTree/fvp-foundation-gicv3-psci.dtb
+    SECTION RAW = Platform/ARM/VExpress/DeviceTree/fvp-base-gicv2-psci.dtb
+    SECTION RAW = Platform/ARM/VExpress/DeviceTree/fvp-base-gicv2legacy-psci.dtb
+    SECTION RAW = Platform/ARM/VExpress/DeviceTree/fvp-base-gicv3-psci.dtb
+    SECTION RAW = Platform/ARM/VExpress/DeviceTree/fvp-foundation-gicv2-psci.dtb
+    SECTION RAW = Platform/ARM/VExpress/DeviceTree/fvp-foundation-gicv2legacy-psci.dtb
+    SECTION RAW = Platform/ARM/VExpress/DeviceTree/fvp-foundation-gicv3-psci.dtb
   }
 !endif
 
