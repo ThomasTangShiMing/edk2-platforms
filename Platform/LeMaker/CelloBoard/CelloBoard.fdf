@@ -50,13 +50,13 @@ NumBlocks     = 0x500
 ################################################################################
 
 0x00000000|0x00200000
-FILE = OpenPlatformPkg/Platforms/AMD/Styx/CelloBoard/Binary/PreUefiFirmware.bin
+FILE = Platform/LeMaker/CelloBoard/PreUefiFirmware.bin
 
 0x00200000|0x00260000
 gArmTokenSpaceGuid.PcdFvBaseAddress|gArmTokenSpaceGuid.PcdFvSize
 FV = STYX_EFI
 
-!include OpenPlatformPkg/Platforms/AMD/Styx/Common/Varstore.fdf.inc
+!include Silicon/AMD/Styx/Common/Varstore.fdf.inc
 
 ################################################################################
 #
@@ -131,17 +131,17 @@ READ_LOCK_STATUS   = TRUE
   # Environment Variables Protocol
   #
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
-  INF OpenPlatformPkg/Platforms/AMD/Styx/Drivers/StyxSpiFvDxe/StyxSpiFvDxe.inf
+  INF Silicon/AMD/Styx/Drivers/StyxSpiFvDxe/StyxSpiFvDxe.inf
 
   #
   # Iscp support
   #
-  INF AmdModulePkg/Iscp/IscpDxe.inf
+  INF Silicon/AMD/Styx/AmdModulePkg/Iscp/IscpDxe.inf
 
   #
   # PCI support
   #
-  INF AmdModulePkg/Gionb/Gionb.inf
+  INF Silicon/AMD/Styx/AmdModulePkg/Gionb/Gionb.inf
   INF ArmPkg/Drivers/ArmPciCpuIo2Dxe/ArmPciCpuIo2Dxe.inf
   INF MdeModulePkg/Bus/Pci/PciHostBridgeDxe/PciHostBridgeDxe.inf
   INF MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
@@ -155,7 +155,7 @@ READ_LOCK_STATUS   = TRUE
   INF MdeModulePkg/Bus/Scsi/ScsiDiskDxe/ScsiDiskDxe.inf
   INF MdeModulePkg/Bus/Pci/SataControllerDxe/SataControllerDxe.inf
   INF MdeModulePkg/Bus/Pci/NonDiscoverablePciDeviceDxe/NonDiscoverablePciDeviceDxe.inf
-  INF OpenPlatformPkg/Platforms/AMD/Styx/Drivers/StyxSataPlatformDxe/StyxSataPlatformDxe.inf
+  INF Silicon/AMD/Styx/Drivers/StyxSataPlatformDxe/StyxSataPlatformDxe.inf
 
   #
   # USB Support
@@ -186,20 +186,20 @@ READ_LOCK_STATUS   = TRUE
   #
   # Core Info
   #
-  INF OpenPlatformPkg/Platforms/AMD/Styx/Drivers/PlatInitDxe/PlatInitDxe.inf
+  INF Silicon/AMD/Styx/Drivers/PlatInitDxe/PlatInitDxe.inf
 
   #
   # ACPI Support
   #
   INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
-  INF RuleOverride=ACPITABLE OpenPlatformPkg/Platforms/AMD/Styx/AcpiTables/AcpiAml.inf
-  INF OpenPlatformPkg/Platforms/AMD/Styx/Drivers/AcpiPlatformDxe/AcpiPlatformDxe.inf
+  INF RuleOverride=ACPITABLE Silicon/AMD/Styx/AcpiTables/AcpiAml.inf
+  INF Silicon/AMD/Styx/Drivers/AcpiPlatformDxe/AcpiPlatformDxe.inf
 
   #
   # SMBIOS Support
   #
   INF MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
-  INF OpenPlatformPkg/Platforms/AMD/Styx/Drivers/PlatformSmbiosDxe/PlatformSmbiosDxe.inf
+  INF Silicon/AMD/Styx/Drivers/PlatformSmbiosDxe/PlatformSmbiosDxe.inf
 
   #
   # UEFI application (Shell Embedded Boot Loader)
@@ -218,7 +218,7 @@ READ_LOCK_STATUS   = TRUE
   #
   # Crypto Accelerator support (RNG only)
   #
-  INF OpenPlatformPkg/Platforms/AMD/Styx/Drivers/StyxRngDxe/StyxRngDxe.inf
+  INF Silicon/AMD/Styx/Drivers/StyxRngDxe/StyxRngDxe.inf
 
   #
   # Renesas PD720202 XHCI firmware uploader, requires firmware image
@@ -252,8 +252,8 @@ READ_LOCK_STATUS   = TRUE
   INF ArmPlatformPkg/PrePeiCore/PrePeiCoreUniCore.inf
   INF MdeModulePkg/Core/Pei/PeiMain.inf
   INF ArmPlatformPkg/PlatformPei/PlatformPeim.inf
-  INF AmdModulePkg/Iscp/IscpPei.inf
-  INF OpenPlatformPkg/Platforms/AMD/Styx/Drivers/PlatInitPei/PlatInitPei.inf
+  INF Silicon/AMD/Styx/AmdModulePkg/Iscp/IscpPei.inf
+  INF Silicon/AMD/Styx/Drivers/PlatInitPei/PlatInitPei.inf
   INF ArmPlatformPkg/MemoryInitPei/MemoryInitPeim.inf
   INF ArmPkg/Drivers/CpuPei/CpuPei.inf
   INF MdeModulePkg/Universal/PCD/Pei/Pcd.inf
