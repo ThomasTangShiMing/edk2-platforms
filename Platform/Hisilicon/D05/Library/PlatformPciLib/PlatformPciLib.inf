@@ -25,7 +25,7 @@
 
 [Packages]
   MdePkg/MdePkg.dec
-  OpenPlatformPkg/Chips/Hisilicon/HisiPkg.dec
+  Silicon/Hisilicon/HisiPkg.dec
 
 [LibraryClasses]
   PcdLib

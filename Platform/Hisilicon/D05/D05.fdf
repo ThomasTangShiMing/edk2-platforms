@@ -56,7 +56,7 @@ NumBlocks     = 0x30
 
 0x00000000|0x00040000
 gArmTokenSpaceGuid.PcdSecureFvBaseAddress|gArmTokenSpaceGuid.PcdSecureFvSize
-FILE = OpenPlatformPkg/Platforms/Hisilicon/Binary/D05/Sec/FVMAIN_SEC.Fv
+FILE = Platform/Hisilicon/D05/Sec/FVMAIN_SEC.Fv
 
 0x00040000|0x00240000
 gArmTokenSpaceGuid.PcdFvBaseAddress|gArmTokenSpaceGuid.PcdFvSize
@@ -64,9 +64,9 @@ FV = FVMAIN_COMPACT
 
 0x00280000|0x00020000
 gHisiTokenSpaceGuid.PcdTrustedFirmwareBL1Base
-FILE = OpenPlatformPkg/Platforms/Hisilicon/Binary/D05/bl1.bin
+FILE = Platform/Hisilicon/D05/bl1.bin
 0x002A0000|0x00020000
-FILE = OpenPlatformPkg/Platforms/Hisilicon/Binary/D05/fip.bin
+FILE = Platform/Hisilicon/D05/fip.bin
 
 0x002D0000|0x0000E000
 gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageVariableBase|gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageVariableSize
@@ -113,7 +113,7 @@ DATA = {
 gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageFtwSpareBase|gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageFtwSpareSize
 
 0x002F0000|0x00010000
-FILE = OpenPlatformPkg/Platforms/Hisilicon/Binary/D03/CustomData.Fv
+FILE = Platform/Hisilicon/D03/CustomData.Fv
 
 ################################################################################
 #
@@ -153,7 +153,7 @@ READ_LOCK_STATUS   = TRUE
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
 
-  INF OpenPlatformPkg/Chips/Hisilicon/Hi1610/Drivers/IoInitDxe/IoInitDxe.inf
+  INF Silicon/Hisilicon/Hi1610/Drivers/IoInitDxe/IoInitDxe.inf
   #
   # PI DXE Drivers producing Architectural Protocols (EFI Services)
   #
@@ -161,12 +161,12 @@ READ_LOCK_STATUS   = TRUE
   INF MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
 
   INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
-  INF OpenPlatformPkg/Platforms/Hisilicon/Binary/D05/Drivers/SFC/SfcDxeDriver.inf
+  INF Platform/Hisilicon/D05/Drivers/SFC/SfcDxeDriver.inf
 
-  INF OpenPlatformPkg/Platforms/Hisilicon/D03/Drivers/OemNicConfig2PHi1610/OemNicConfig2P.inf
+  INF Platform/Hisilicon/D03/Drivers/OemNicConfig2PHi1610/OemNicConfig2P.inf
 
 
-  INF OpenPlatformPkg/Chips/Hisilicon/Drivers/FlashFvbDxe/FlashFvbDxe.inf
+  INF Silicon/Hisilicon/Drivers/FlashFvbDxe/FlashFvbDxe.inf
   INF MdeModulePkg/Universal/FaultTolerantWriteDxe/FaultTolerantWriteDxe.inf
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
 
@@ -198,7 +198,6 @@ READ_LOCK_STATUS   = TRUE
   #
   # FAT filesystem + GPT/MBR partitioning
   #
-  INF OpenPlatformPkg/Drivers/Block/ramdisk/ramdisk.inf
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF FatBinPkg/EnhancedFatDxe/Fat.inf
@@ -209,48 +208,45 @@ READ_LOCK_STATUS   = TRUE
   # Usb Support
   #
 
-  INF OpenPlatformPkg/Chips/Hisilicon/Drivers/VirtualEhciPciIo/VirtualEhciPciIo.inf
+  INF Silicon/Hisilicon/Drivers/VirtualEhciPciIo/VirtualEhciPciIo.inf
   INF MdeModulePkg/Bus/Pci/EhciDxe/EhciDxe.inf
-  INF OpenPlatformPkg/Platforms/Hisilicon/Binary/D05/Drivers/OhciDxe/OhciDxe.inf
+  INF Platform/Hisilicon/D05/Drivers/OhciDxe/OhciDxe.inf
   INF MdeModulePkg/Bus/Pci/XhciDxe/XhciDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMouseDxe/UsbMouseDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
-  INF OpenPlatformPkg/Platforms/Hisilicon/Binary/D05/Drivers/Ipmi/IpmiInterfaceDxe/IpmiInterfaceDxe.inf
-  INF OpenPlatformPkg/Platforms/Hisilicon/Binary/D05/Drivers/GetInfoFromBmc/GetInfoFromBmc.inf
+  INF Platform/Hisilicon/D05/Drivers/Ipmi/IpmiInterfaceDxe/IpmiInterfaceDxe.inf
+  INF Platform/Hisilicon/D05/Drivers/GetInfoFromBmc/GetInfoFromBmc.inf
   INF MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
-  INF OpenPlatformPkg/Chips/Hisilicon/Drivers/Smbios/SmbiosMiscDxe/SmbiosMiscDxe.inf
+  INF Silicon/Hisilicon/Drivers/Smbios/SmbiosMiscDxe/SmbiosMiscDxe.inf
 
-  INF OpenPlatformPkg/Chips/Hisilicon/Drivers/Smbios/AddSmbiosType9/AddSmbiosType9.inf
-  INF OpenPlatformPkg/Platforms/Hisilicon/Binary/D05/Drivers/TransferSmbiosInfo/TransSmbiosInfo.inf
-  INF OpenPlatformPkg/Platforms/Hisilicon/Binary/D05/Drivers/IpmiMiscOpDxe/IpmiMiscOpDxe.inf
+  INF Silicon/Hisilicon/Drivers/Smbios/AddSmbiosType9/AddSmbiosType9.inf
+  INF Platform/Hisilicon/D05/Drivers/TransferSmbiosInfo/TransSmbiosInfo.inf
+  INF Platform/Hisilicon/D05/Drivers/IpmiMiscOpDxe/IpmiMiscOpDxe.inf
 
-  INF OpenPlatformPkg/Platforms/Hisilicon/Binary/D05/Drivers/IpmiWatchdogDxe/IpmiWatchdogDxe.inf
+  INF Platform/Hisilicon/D05/Drivers/IpmiWatchdogDxe/IpmiWatchdogDxe.inf
 
 
-  INF OpenPlatformPkg/Chips/Hisilicon/Drivers/Smbios/MemorySubClassDxe/MemorySubClassDxe.inf
+  INF Silicon/Hisilicon/Drivers/Smbios/MemorySubClassDxe/MemorySubClassDxe.inf
 
-  INF OpenPlatformPkg/Chips/Hisilicon/Drivers/Smbios/ProcessorSubClassDxe/ProcessorSubClassDxe.inf
+  INF Silicon/Hisilicon/Drivers/Smbios/ProcessorSubClassDxe/ProcessorSubClassDxe.inf
 
   #
   #ACPI
   #
   INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
-  INF OpenPlatformPkg/Chips/Hisilicon/Drivers/HisiAcpiPlatformDxe/AcpiPlatformDxe.inf
+  INF Silicon/Hisilicon/Drivers/HisiAcpiPlatformDxe/AcpiPlatformDxe.inf
 
-  INF RuleOverride=ACPITABLE OpenPlatformPkg/Chips/Hisilicon/Hi1616/D05AcpiTables/AcpiTablesHi1616.inf
-  INF OpenPlatformPkg/Chips/Hisilicon/Drivers/AcpiPlatformDxe/AcpiPlatformDxe.inf
+  INF RuleOverride=ACPITABLE Silicon/Hisilicon/Hi1616/D05AcpiTables/AcpiTablesHi1616.inf
+  INF Silicon/Hisilicon/Drivers/AcpiPlatformDxe/AcpiPlatformDxe.inf
 
   #
   #Network
   #
 
-  INF OpenPlatformPkg/Platforms/Hisilicon/Binary/D05/Drivers/Net/SnpPV660DxeMac0/SnpPV600DxeMac0.inf
-  INF OpenPlatformPkg/Platforms/Hisilicon/Binary/D05/Drivers/Net/SnpPV660DxeMac1/SnpPV600DxeMac1.inf
-  INF OpenPlatformPkg/Platforms/Hisilicon/Binary/D05/Drivers/Net/SnpPV660DxeMac4/SnpPV600DxeMac4.inf
-  INF OpenPlatformPkg/Platforms/Hisilicon/Binary/D05/Drivers/Net/SnpPV660DxeMac5/SnpPV600DxeMac5.inf
+  INF Platform/Hisilicon/D05/Drivers/Net/SnpPV660Dxe/SnpPV600Dxe.inf
 
   INF MdeModulePkg/Universal/Network/ArpDxe/ArpDxe.inf
   INF MdeModulePkg/Universal/Network/Dhcp4Dxe/Dhcp4Dxe.inf
@@ -279,27 +275,23 @@ READ_LOCK_STATUS   = TRUE
 !endif
 
 !ifdef $(FDT_ENABLE)
-  INF OpenPlatformPkg/Chips/Hisilicon/Drivers/UpdateFdtDxe/UpdateFdtDxe.inf
+  INF Silicon/Hisilicon/Drivers/UpdateFdtDxe/UpdateFdtDxe.inf
 !endif #$(FDT_ENABLE)
 
   #
   # PCI Support
   #
-  INF OpenPlatformPkg/Chips/Hisilicon/Hi1610/Drivers/PcieInit1610/PcieInitDxe.inf
-  INF OpenPlatformPkg/Platforms/Hisilicon/D03/Drivers/PciPlatform/PciPlatform.inf
-  INF OpenPlatformPkg/Chips/Hisilicon/Drivers/PciHostBridgeDxe/PciHostBridgeDxe.inf
+  INF Silicon/Hisilicon/Hi1610/Drivers/PcieInit1610/PcieInitDxe.inf
+  INF Platform/Hisilicon/D03/Drivers/PciPlatform/PciPlatform.inf
+  INF Silicon/Hisilicon/Drivers/PciHostBridgeDxe/PciHostBridgeDxe.inf
   INF MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
 
-  INF OpenPlatformPkg/Platforms/Hisilicon/Binary/D05/Drivers/ReportPciePlugDidVidToBmc/ReportPciePlugDidVidToBmc.inf
+  INF Platform/Hisilicon/D05/Drivers/ReportPciePlugDidVidToBmc/ReportPciePlugDidVidToBmc.inf
   # VGA Driver
   #
-  INF OpenPlatformPkg/Platforms/Hisilicon/Binary/D05/Drivers/Sm750Dxe/UefiSmi.inf
+  INF Platform/Hisilicon/D05/Drivers/Sm750Dxe/UefiSmi.inf
   INF  MdeModulePkg/Bus/Pci/NvmExpressDxe/NvmExpressDxe.inf
-  INF OpenPlatformPkg/Platforms/Hisilicon/Binary/D05/Drivers/Sas/SasDxeDriver.inf
-  #
-  # UEFI application (Shell Embedded Boot Loader)
-  #
-  INF OpenPlatformPkg/Platforms/Hisilicon/Binary/D05/Ebl/Ebl.inf
+  INF Platform/Hisilicon/D05/Drivers/Sas/SasDxeDriver.inf
 
   #
   # Build Shell from latest source code instead of prebuilt binary
@@ -344,14 +336,14 @@ READ_LOCK_STATUS   = TRUE
   INF MdeModulePkg/Universal/FaultTolerantWritePei/FaultTolerantWritePei.inf
   INF MdeModulePkg/Universal/Variable/Pei/VariablePei.inf
 
-  INF OpenPlatformPkg/Chips/Hisilicon/Drivers/VersionInfoPeim/VersionInfoPeim.inf
+  INF Silicon/Hisilicon/Drivers/VersionInfoPeim/VersionInfoPeim.inf
 
-  INF OpenPlatformPkg/Platforms/Hisilicon/Binary/D05/Drivers/Ipmi/IpmiInterfacePei/IpmiInterfacePei.inf
-  INF OpenPlatformPkg/Platforms/Hisilicon/Binary/D05/MemoryInitPei/MemoryInitPeim.inf
+  INF Platform/Hisilicon/D05/Drivers/Ipmi/IpmiInterfacePei/IpmiInterfacePei.inf
+  INF Platform/Hisilicon/D05/MemoryInitPei/MemoryInitPeim.inf
   INF ArmPkg/Drivers/CpuPei/CpuPei.inf
   INF MdeModulePkg/Universal/PCD/Pei/Pcd.inf
   INF IntelFrameworkModulePkg/Universal/StatusCode/Pei/StatusCodePei.inf
-  INF OpenPlatformPkg/Platforms/Hisilicon/D05/EarlyConfigPeim/EarlyConfigPeimD05.inf
+  INF Platform/Hisilicon/D05/EarlyConfigPeim/EarlyConfigPeimD05.inf
 
   INF MdeModulePkg/Core/DxeIplPeim/DxeIpl.inf
 
@@ -362,5 +354,5 @@ READ_LOCK_STATUS   = TRUE
   }
 
 
-!include OpenPlatformPkg/Chips/Hisilicon/Hisilicon.fdf.inc
+!include Silicon/Hisilicon/Hisilicon.fdf.inc
 
