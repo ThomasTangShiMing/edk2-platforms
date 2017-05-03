@@ -24,8 +24,8 @@
   EmbeddedPkg/EmbeddedPkg.dec
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  OpenPlatformPkg/Chips/Hisilicon/Hi6220/Hi6220.dec
-  OpenPlatformPkg/Platforms/Hisilicon/HiKey/HiKey.dec
+  Platform/Hisilicon/HiKey/HiKey.dec
+  Silicon/Hisilicon/Hi6220/Hi6220.dec
 
 [LibraryClasses]
   ArmLib

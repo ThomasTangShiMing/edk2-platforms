@@ -24,7 +24,7 @@
   SUPPORTED_ARCHITECTURES        = AARCH64
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT
-  FLASH_DEFINITION               = OpenPlatformPkg/Platforms/Hisilicon/HiKey/HiKey.fdf
+  FLASH_DEFINITION               = Platform/Hisilicon/HiKey/HiKey.fdf
 
 [LibraryClasses.common]
 !if $(TARGET) == RELEASE
@@ -43,7 +43,7 @@
 
   ArmLib|ArmPkg/Library/ArmLib/ArmBaseLib.inf
   ArmMmuLib|ArmPkg/Library/ArmMmuLib/ArmMmuBaseLib.inf
-  ArmPlatformLib|OpenPlatformPkg/Platforms/Hisilicon/HiKey/Library/HiKeyLib/HiKeyLib.inf
+  ArmPlatformLib|Platform/Hisilicon/HiKey/Library/HiKeyLib/HiKeyLib.inf
   ArmPlatformStackLib|ArmPlatformPkg/Library/ArmPlatformStackLib/ArmPlatformStackLib.inf
   ArmPlatformSysConfigLib|ArmPlatformPkg/Library/ArmPlatformSysConfigLibNull/ArmPlatformSysConfigLibNull.inf
 
@@ -163,7 +163,7 @@
   ReportStatusCodeLib|IntelFrameworkModulePkg/Library/DxeReportStatusCodeLibFramework/DxeReportStatusCodeLib.inf
 
 [BuildOptions]
-  GCC:*_*_*_PLATFORM_FLAGS = -I$(WORKSPACE)/OpenPlatformPkg/Chips/Hisilicon/Hi6220/Include -I$(WORKSPACE)/OpenPlatformPkg/Platforms/Hisilicon/HiKey/Include
+  GCC:*_*_*_PLATFORM_FLAGS = -I$(WORKSPACE)/Silicon/Hisilicon/Hi6220/Include -I$(WORKSPACE)/Platform/Hisilicon/HiKey/Include
 
 [BuildOptions.common.EDKII.DXE_RUNTIME_DRIVER]
   GCC:*_*_AARCH64_DLINK_FLAGS = -z common-page-size=0x10000
@@ -328,8 +328,8 @@
   #
   # DW MMC/SD card controller
   #
-  gDwEmmcDxeTokenSpaceGuid.PcdDwEmmcDxeBaseAddress|0xF723D000
-  gDwEmmcDxeTokenSpaceGuid.PcdDwEmmcDxeClockFrequencyInHz|100000000
+  gEmbeddedTokenSpaceGuid.PcdDwEmmcDxeBaseAddress|0xF723D000
+  gEmbeddedTokenSpaceGuid.PcdDwEmmcDxeClockFrequencyInHz|100000000
 
   #
   #
@@ -394,7 +394,7 @@
   # MMC/SD
   #
   EmbeddedPkg/Universal/MmcDxe/MmcDxe.inf
-  OpenPlatformPkg/Drivers/Mmc/DwEmmcDxe/DwEmmcDxe.inf
+  EmbeddedPkg/Drivers/DwEmmcDxe/DwEmmcDxe.inf
 
   #
   # USB Host Support
