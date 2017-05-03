@@ -28,10 +28,10 @@
   SUPPORTED_ARCHITECTURES        = AARCH64|ARM
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT
-  FLASH_DEFINITION               = OpenPlatformPkg/Platforms/ARM/Juno/ArmJuno.fdf
+  FLASH_DEFINITION               = Platform/ARM/Juno/ArmJuno.fdf
 
 # On RTSM, most peripherals are VExpress Motherboard peripherals
-!include OpenPlatformPkg/Platforms/ARM/VExpress/ArmVExpress.dsc.inc
+!include Platform/ARM/VExpress/ArmVExpress.dsc.inc
 
 [LibraryClasses.common]
   ArmLib|ArmPkg/Library/ArmLib/ArmBaseLib.inf
@@ -66,7 +66,7 @@
 [LibraryClasses.common.UEFI_DRIVER, LibraryClasses.common.UEFI_APPLICATION, LibraryClasses.common.DXE_RUNTIME_DRIVER, LibraryClasses.common.DXE_DRIVER]
   PcdLib|MdePkg/Library/DxePcdLib/DxePcdLib.inf
   NonDiscoverableDeviceRegistrationLib|MdeModulePkg/Library/NonDiscoverableDeviceRegistrationLib/NonDiscoverableDeviceRegistrationLib.inf
-  PciHostBridgeLib|OpenPlatformPkg/Platforms/ARM/Juno/Library/JunoPciHostBridgeLib/JunoPciHostBridgeLib.inf
+  PciHostBridgeLib|Platform/ARM/Juno/Library/JunoPciHostBridgeLib/JunoPciHostBridgeLib.inf
   PciSegmentLib|MdePkg/Library/BasePciSegmentLibPci/BasePciSegmentLibPci.inf
   PciLib|MdePkg/Library/BasePciLibPciExpress/BasePciLibPciExpress.inf
   PciExpressLib|MdePkg/Library/BasePciExpressLib/BasePciExpressLib.inf
@@ -256,7 +256,7 @@
   # ACPI Support
   #
   MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
-  OpenPlatformPkg/Platforms/ARM/Juno/AcpiTables/AcpiTables.inf
+  Platform/ARM/Juno/AcpiTables/AcpiTables.inf
 
   MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
 
@@ -301,7 +301,9 @@
   # Networking stack
   #
   EmbeddedPkg/Drivers/Lan9118Dxe/Lan9118Dxe.inf
+!if 0
   OptionRomPkg/MarvellYukonDxe/MarvellYukonDxe.inf
+!endif
 
   #
   # Usb Support
@@ -324,7 +326,7 @@
   # SMBIOS/DMI
   #
   MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
-  OpenPlatformPkg/Platforms/ARM/Juno/SmbiosPlatformDxe/SmbiosPlatformDxe.inf
+  Platform/ARM/Juno/SmbiosPlatformDxe/SmbiosPlatformDxe.inf
 
   #
   # Bds
@@ -353,9 +355,3 @@
   # EBC
   #
   MdeModulePkg/Universal/EbcDxe/EbcDxe.inf
-
-  SecurityPkg/RandomNumberGenerator/RngDxe/RngDxe.inf {
-    <LibraryClasses>
-      # DO NOT USE THIS LIBRARY FOR PRODUCTION DEVICES
-      RngLib|OpenPlatformPkg/Platforms/ARM/Binary/Library/PseudoRngLib/PseudoRngLib.inf
-  }
