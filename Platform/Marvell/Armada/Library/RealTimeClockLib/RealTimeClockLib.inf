@@ -39,9 +39,9 @@
 [LibraryClasses]
   DebugLib
   DxeServicesTableLib
-  EfiTimeBaseLib
   IoLib
   PcdLib
+  TimeBaseLib
   TimerLib
   UefiRuntimeLib
 

@@ -78,7 +78,7 @@
 
   SerdesLib|Silicon/Hisilicon/Hi1616/Library/Hi1616Serdes/Hi1616SerdesLib.inf
 
-  EfiTimeBaseLib|EmbeddedPkg/Library/EfiTimeBaseLib/EfiTimeBaseLib.inf
+  TimeBaseLib|EmbeddedPkg/Library/TimeBaseLib/TimeBaseLib.inf
   #D05 RTC hardware is same as D03
   RealTimeClockLib|Platform/Hisilicon/D03/Library/DS3231RealTimeClockLib/DS3231RealTimeClockLib.inf
 

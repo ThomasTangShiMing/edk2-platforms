@@ -36,9 +36,9 @@
   DebugLib
   PcdLib
   DxeServicesTableLib
+  TimeBaseLib
   UefiRuntimeLib
   ArmLib
-  EfiTimeBaseLib
 
 [Guids]
   gEfiEventVirtualAddressChangeGuid

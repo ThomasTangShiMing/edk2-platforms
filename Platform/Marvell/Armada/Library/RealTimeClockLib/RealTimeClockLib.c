@@ -24,7 +24,7 @@
 #include <Library/BaseLib.h>
 #include <Library/DebugLib.h>
 #include <Library/DxeServicesTableLib.h>
-#include <Library/EfiTimeBaseLib.h>
+#include <Library/TimeBaseLib.h>
 #include <Library/IoLib.h>
 #include <Library/MvHwDescLib.h>
 #include <Library/RealTimeClockLib.h>

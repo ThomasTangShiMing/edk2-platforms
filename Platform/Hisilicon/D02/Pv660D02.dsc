@@ -61,7 +61,7 @@
 
   SerdesLib|Silicon/Hisilicon/Pv660/Library/Pv660Serdes/Pv660SerdesLib.inf
 
-  EfiTimeBaseLib|EmbeddedPkg/Library/EfiTimeBaseLib/EfiTimeBaseLib.inf
+  TimeBaseLib|EmbeddedPkg/Library/TimeBaseLib/TimeBaseLib.inf
   RealTimeClockLib|Silicon/Hisilicon/Library/DS3231RealTimeClockLib/DS3231RealTimeClockLib.inf
   OemMiscLib|Platform/Hisilicon/D02/Library/OemMiscLibD02/OemMiscLibD02.inf
   OemAddressMapLib|Platform/Hisilicon/D02/Library/AddressMapPv660D02/OemAddressMapPv660D02.inf

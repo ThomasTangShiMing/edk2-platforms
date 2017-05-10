@@ -92,7 +92,7 @@
   PlatformHookLib|MdeModulePkg/Library/BasePlatformHookLibNull/BasePlatformHookLibNull.inf
 
   # Reset and Time libraries
-  EfiTimeBaseLib|EmbeddedPkg/Library/EfiTimeBaseLib/EfiTimeBaseLib.inf
+  TimeBaseLib|EmbeddedPkg/Library/EfiTimeBaseLib/EfiTimeBaseLib.inf
   RealTimeClockLib|Platform/Marvell/Armada/Library/RealTimeClockLib/RealTimeClockLib.inf
   EfiResetSystemLib|Platform/Marvell/Library/ResetSystemLib/MvResetSystemLib.inf
 

@@ -34,7 +34,7 @@
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/UefiRuntimeServicesTableLib.h>
 #include <Library/TimerLib.h>
-#include <Library/EfiTimeBaseLib.h>
+#include <Library/TimeBaseLib.h>
 #include <Protocol/RealTimeClock.h>
 #include <Library/I2CLib.h>
 #include "DS3231RealTimeClock.h"

@@ -38,11 +38,11 @@
   DebugLib
   PcdLib
   I2CLib
+  TimeBaseLib
   TimerLib
 # Use EFiAtRuntime to check stage
   UefiRuntimeLib
   CpldIoLib
-  EfiTimeBaseLib
 
 [Pcd]
 

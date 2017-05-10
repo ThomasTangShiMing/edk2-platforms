@@ -31,7 +31,7 @@
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/UefiRuntimeServicesTableLib.h>
 #include <Library/UefiRuntimeLib.h>
-#include <Library/EfiTimeBaseLib.h>
+#include <Library/TimeBaseLib.h>
 
 #include <Protocol/RealTimeClock.h>
 
